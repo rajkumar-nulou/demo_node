@@ -9,12 +9,11 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-const corsOptions = {
-  origin: ['http://localhost:5175', 'http://localhost:5174'],
-  credentials: true,
-};
+app.use(cors({ 
+    origin: true, 
+    credentials: true // Optional: Use this if you need to send cookies with requests
+}));
 
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
